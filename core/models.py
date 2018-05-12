@@ -30,6 +30,7 @@ class Asset(models.Model):
         return self.status is self.AVAILABLE
 
     def reserve(self):
+        assert self.is_available()
         # probably need more logic here to stop race conditions
         self.status = self.BUSY
         if self.id: self.save(update_fields=['status'])
