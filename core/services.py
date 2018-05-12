@@ -11,8 +11,8 @@ class ion_test(object):
 
 
     def __call__(self, *args, **kwargs):
-        assets = [arg for arg in args if type(arg) is Asset]
-
+        assets = [arg for arg in args if isinstance(arg, Asset)]
+        
         for asset in assets:
             asset.reserve()
 

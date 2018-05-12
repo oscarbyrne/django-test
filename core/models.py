@@ -27,7 +27,7 @@ class Asset(models.Model):
 
     def is_available(self):
         if self.id: self.refresh_from_db(fields=['status'])
-        return self.status is self.AVAILABLE
+        return self.status == self.AVAILABLE
 
     def reserve(self):
         assert self.is_available()
